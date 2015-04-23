@@ -45,35 +45,13 @@ var http = require('http'),
     fs = require('fs');
 
 http.createServer(function (req, res) {
-
-    if(req.url.indexOf('.html') != -1){ //req.url has the pathname, check if it conatins '.html'
-
-        fs.readFile(__dirname + '/factorial.html', function (err, data) {
+        console.log( __dirname+req.url);
+        fs.readFile(__dirname + req.url, function (err, data) {
             if (err) console.log(err);
-            res.writeHead(200, {'Content-Type': 'text/html'});
-            console.log(data);
-            res.write(data);
-
-            console.log(data);
-            res.end();
+            res.end(data);
         });
-
-    }
-
-
-
-    else if(req.url.indexOf('.css') != -1){ //req.url has the pathname, check if it conatins '.css'
-
-        fs.readFile(__dirname + '/style.css', function (err, data) {
-            if (err) console.log(err);
-            res.writeHead(200, {'Content-Type': 'text/css'});
-            res.write(data);
-            res.end();
-        });
-
-    }
 
 }).listen(1337, '127.0.0.1');
 console.log('Server running at http://127.0.0.1:1337/');
-console.log( __dirname+'/factorial.html');
+
 
