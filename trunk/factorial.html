@@ -1,0 +1,45 @@
+
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title> Factorial Calculator </title>
+    <script>
+        function fact(x) {
+            if(x==0) {
+                return 1;
+            }
+            return x * fact(x-1);
+        }
+
+        function factorialCalculator(number) {
+            alert(fact(parseInt(number, 10)));
+        }
+    </script>
+</head>
+
+<body>
+
+<div id="banner"><p>Enjoy the Power</p></div><br><br>
+<script src="lib/jquery-1.9.0.min.js" type="text/javascript"></script>
+<script src="jquery.index.js" type="text/javascript"></script>
+
+
+<div id="mydiv">
+<br>
+    <br>
+    <form>
+          <b> Enter Number:</b><input type="text" style="text-align: center" length="8" name="txt1"><br><br><br>
+    <input type="button"  class="myButton" value="Find Factorial"  onclick="factorialCalculator(txt1.value)">
+</form>
+    </div>
+
+</body>
+</html>
+
+
+
+
+
