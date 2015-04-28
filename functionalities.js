@@ -2,11 +2,11 @@ $(function(){
 
 	function addEmployee(){
 		$("#t01").append(
-			"<tr>"+
-			"<td><input type='text'/></td>"+
-			"<td><input type='text'/></td>"+
-			"<td><input type='text'/></td>"+
-			"<td><img src='images/disk.png' class='btnSaver'><img src='images/delete.png' class='btnDelete'/></td>"+
+			"<tr class='employee-row'>"+
+			"<td class='name'><input type='text' /></td>"+
+			"<td class='phone' ><input type='text' /></td>"+
+			"<td class='email'><input type='text' /></td>"+
+			"<td class='commands'><img src='images/disk.png' class='btnSaver'><img src='images/delete.png' class='btnDelete'/></td>"+
 			"</tr>");
 	
 
