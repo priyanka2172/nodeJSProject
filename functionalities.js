@@ -9,15 +9,16 @@ $(function(){
 			"<td><img src='images/disk.png' class='btnSaver'><img src='images/delete.png' class='btnDelete'/></td>"+
 			"</tr>");
 	
-		$(".btnSaver").bind("click", Saver);
-		$(".btnDelete").bind("click",deleteFunction);
-	};
+
+	}
 
 	function Edit(){
-		var par = $(this).parent().parent(); //tr
-		var tdName = par.children("td:nth-child(1)");
-		var tdPhone = par.children("td:nth-child(2)");
-		var tdEmail = par.children("td:nth-child(3)");
+		var par = $(this).closest("tr");//tr
+        var tdName = par.find(".name");
+        var tdPhone = par.find(".phone");
+		var tdEmail = par.find(".email");
+        //var tdButton = par.find(".commands");
+
 		var tdButton = par.children("td:nth-child(4)");
 
         tdName.html("<input type='text' id='txtName' value='"+tdName.html()+"'/>");
@@ -25,16 +26,15 @@ $(function(){
 		tdEmail.html("<input type='text' id='txtEmail' value='"+tdEmail.html()+"'/>");
         tdButton.html("<img src='images/disk.png' class='btnSaver'/>");
 
-		$(".btnSaver").bind("click", Saver);
-		$(".btnEdit").bind("click", Edit);
-		$(".btnDelete").bind("click", deleteFunction);
-	};
+
+	}
 
 	function Saver(){
-		var par = $(this).parent().parent(); //tr
-		var tdName = par.children("td:nth-child(1)");
-		var tdPhone = par.children("td:nth-child(2)");
-		var tdEmail = par.children("td:nth-child(3)");
+		var par = $(this).closest("tr"); //tr
+        var tdName = par.find(".name");
+        var tdPhone = par.find(".phone");
+        var tdEmail = par.find(".email");
+        //var tdButton = par.find(".commands");
 		var tdButton = par.children("td:nth-child(4)");
 
         tdName.html(tdName.children("input[type=text]").val());
@@ -42,17 +42,21 @@ $(function(){
 		tdEmail.html(tdEmail.children("input[type=text]").val());
         tdButton.html("<img src='images/delete.png' class='btnDelete'/><img src='images/pencil.png' class='btnEdit'/>");
 
-		$(".btnEdit").bind("click", Edit);
-		$(".btnDelete").bind("click", deleteFunction);
-	};
+
+
+	}
 
 	function deleteFunction(){
 		var par = $(this).parent().parent(); //tr
 		par.remove();
-	};
+	}
 
-	$(".btnEdit").bind("click", Edit);
-	$(".btnDelete").bind("click", deleteFunction);
-	$("#btnaddEmployee").bind("click", addEmployee);
+
+
+
+    $("body").on("click", "#btnaddEmployee",addEmployee);
+    $("body").on("click", ".btnSaver", Saver);
+    $("body").on("click", ".btnEdit", Edit);
+    $("body").on("click",".btnDelete", deleteFunction);
 
 });
