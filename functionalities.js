@@ -13,13 +13,13 @@ $(function(){
 	}
 
 	function Edit(){
-		var par = $(this).closest("tr");//tr
-        var tdName = par.find(".name");
-        var tdPhone = par.find(".phone");
-		var tdEmail = par.find(".email");
-        //var tdButton = par.find(".commands");
+		var employeeRow = $(this).closest("tr");//tr
+        var tdName = employeeRow.find(".name");
+        var tdPhone = employeeRow.find(".phone");
+		var tdEmail = employeeRow.find(".email");
+        //var tdButton = employeeRow.find(".commands");
 
-		var tdButton = par.children("td:nth-child(4)");
+		var tdButton = employeeRow.children("td:nth-child(4)");
 
         tdName.html("<input type='text' id='txtName' value='"+tdName.html()+"'/>");
         tdPhone.html("<input type='text' id='txtPhone' value='"+tdPhone.html()+"'/>");
@@ -29,13 +29,13 @@ $(function(){
 
 	}
 
-	function Saver(){
-		var par = $(this).closest("tr"); //tr
-        var tdName = par.find(".name");
-        var tdPhone = par.find(".phone");
-        var tdEmail = par.find(".email");
-        //var tdButton = par.find(".commands");
-		var tdButton = par.children("td:nth-child(4)");
+	function SaveEmployee(){
+		var employeeRow = $(this).closest("tr"); //tr
+        var tdName = employeeRow.find(".name");
+        var tdPhone = employeeRow.find(".phone");
+        var tdEmail = employeeRow.find(".email");
+        //var tdButton = employeeRow.find(".commands");
+		var tdButton = employeeRow.children("td:nth-child(4)");
 
         tdName.html(tdName.children("input[type=text]").val());
         tdPhone.html(tdPhone.children("input[type=text]").val());
@@ -46,17 +46,17 @@ $(function(){
 
 	}
 
-	function deleteFunction(){
-		var par = $(this).parent().parent(); //tr
-		par.remove();
+	function deleteEmployee(){
+		var employeeRow =$(this).closest("tr"); //tr
+        employeeRow.remove();
 	}
 
 
 
 
     $("body").on("click", "#btnaddEmployee",addEmployee);
-    $("body").on("click", ".btnSaver", Saver);
+    $("body").on("click", ".btnSaver", SaveEmployee);
     $("body").on("click", ".btnEdit", Edit);
-    $("body").on("click",".btnDelete", deleteFunction);
+    $("body").on("click",".btnDelete", deleteEmployee);
 
 });
