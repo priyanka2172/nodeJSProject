@@ -17,9 +17,9 @@ $(function(){
         var tdName = employeeRow.find(".name");
         var tdPhone = employeeRow.find(".phone");
 		var tdEmail = employeeRow.find(".email");
-        //var tdButton = employeeRow.find(".commands");
+        var tdButton = employeeRow.find(".commands");
 
-		var tdButton = employeeRow.children("td:nth-child(4)");
+		//var tdButton = employeeRow.children("td:nth-child(4)");
 
         tdName.html("<input type='text' id='txtName' value='"+tdName.html()+"'/>");
         tdPhone.html("<input type='text' id='txtPhone' value='"+tdPhone.html()+"'/>");
@@ -34,8 +34,8 @@ $(function(){
         var tdName = employeeRow.find(".name");
         var tdPhone = employeeRow.find(".phone");
         var tdEmail = employeeRow.find(".email");
-        //var tdButton = employeeRow.find(".commands");
-		var tdButton = employeeRow.children("td:nth-child(4)");
+        var tdButton = employeeRow.find(".commands");
+		//var tdButton = employeeRow.children("td:nth-child(4)");
 
         tdName.html(tdName.children("input[type=text]").val());
         tdPhone.html(tdPhone.children("input[type=text]").val());
@@ -47,7 +47,7 @@ $(function(){
 	}
 
 	function deleteEmployee(){
-		var employeeRow =$(this).closest("tr"); //tr
+		var employeeRow =$(this).closest(".employee-row"); //tr
         employeeRow.remove();
 	}
 
