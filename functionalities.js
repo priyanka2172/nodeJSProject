@@ -12,7 +12,7 @@ $(function(){
 
 	}
 
-	function Edit(){
+	function editEmployee(){
 		var employeeRow = $(this).closest("tr");//tr
         var tdName = employeeRow.find(".name");
         var tdPhone = employeeRow.find(".phone");
@@ -29,7 +29,7 @@ $(function(){
 
 	}
 
-	function SaveEmployee(){
+	function saveEmployee(){
 		var employeeRow = $(this).closest("tr"); //tr
         var tdName = employeeRow.find(".name");
         var tdPhone = employeeRow.find(".phone");
@@ -55,8 +55,8 @@ $(function(){
 
 
     $("body").on("click", "#btnaddEmployee",addEmployee);
-    $("body").on("click", ".btnSaver", SaveEmployee);
-    $("body").on("click", ".btnEdit", Edit);
+    $("body").on("click", ".btnSaver", saveEmployee);
+    $("body").on("click", ".btnEdit", editEmployee);
     $("body").on("click",".btnDelete", deleteEmployee);
 
 });
