@@ -50,14 +50,20 @@ var EmployeeManager=function(){};
     EmployeeManager.prototype.deleteEmployee=function (){
 		var employeeRow =$(this).closest(".employee-row"); //tr
         employeeRow.remove();
+
+
 	};
+var employee = new EmployeeManager();
+$(document).ready(function() {
+    {
 
 
-var employee=new EmployeeManager();
 
 //document.getElementById("body").on("click", "#btnaddEmployee",EmployeeManager.addEmployee);
- $("body").on("click", "#btnaddEmployee",EmployeeManager.addEmployee);
-    $("body").on("click", ".btnSaver", employee.saveEmployee);
-    $("body").on("click", ".btnEdit", employee.editEmployee);
-    $("body").on("click",".btnDelete", employee.deleteEmployee);
+        $("body").on("click", "#btnaddEmployee", employee.addEmployee);
+        $("body").on("click", ".btnSaver", employee.saveEmployee);
+        $("body").on("click", ".btnEdit", employee.editEmployee);
+        $("body").on("click", ".btnDelete", employee.deleteEmployee);
 
+    }
+});
