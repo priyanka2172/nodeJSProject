@@ -16,13 +16,17 @@ var EmployeeManager=function(){};
     EmployeeManager.prototype.editEmployee=function (){
 		var employeeRow = $(this).closest(".employee-row");//tr
         var tdName = employeeRow.find(".name");
+
         var tdPhone = employeeRow.find(".phone");
 		var tdEmail = employeeRow.find(".email");
         var tdButton = employeeRow.find(".commands");
 
 		//var tdButton = employeeRow.children("td:nth-child(4)");
 
+       var time= tdName.html("<input type='text' id='txtName' value='"+tdName.html()+"'/>");
+      document.write(time);
         tdName.html("<input type='text' id='txtName' value='"+tdName.html()+"'/>");
+
         tdPhone.html("<input type='text' id='txtPhone' value='"+tdPhone.html()+"'/>");
 		tdEmail.html("<input type='text' id='txtEmail' value='"+tdEmail.html()+"'/>");
         tdButton.html("<img src='images/disk.png' class='btnSaver'/>");
@@ -31,12 +35,32 @@ var EmployeeManager=function(){};
 	};
 
     EmployeeManager.prototype.saveEmployee=function (){
-		var employeeRow = $(this).closest(".employee-row"); //tr
+
+
+
+        var employeeRow = $(this).closest(".employee-row"); //tr
         var tdName = employeeRow.find(".name");
         var tdPhone = employeeRow.find(".phone");
         var tdEmail = employeeRow.find(".email");
         var tdButton = employeeRow.find(".commands");
 		//var tdButton = employeeRow.children("td:nth-child(4)");
+
+
+        var $items = $('.name', '.phone','.email','.commands');
+        var employees = {};
+        $items.each(function() {
+            employees[this.id] = $(this).val()
+        })
+        $.ajax({
+            type: 'POST',
+            data: {data:employees},
+            dataType: 'json',
+            contentType: "application/x-www-form-urlencoded"
+
+        });
+
+
+
 
         tdName.html(tdName.children("input[type=text]").val());
         tdPhone.html(tdPhone.children("input[type=text]").val());
