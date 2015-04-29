@@ -1,6 +1,7 @@
-$(function(){
+var EmployeeManager=function(){};
 
-	function addEmployee(){
+
+    EmployeeManager.prototype.addEmployee=function(){
 		$("#t01").append(
 			"<tr class='employee-row'>"+
 			"<td class='name'><input type='text' /></td>"+
@@ -10,9 +11,9 @@ $(function(){
 			"</tr>");
 	
 
-	}
+	};
 
-	function editEmployee(){
+    EmployeeManager.prototype.editEmployee=function (){
 		var employeeRow = $(this).closest(".employee-row");//tr
         var tdName = employeeRow.find(".name");
         var tdPhone = employeeRow.find(".phone");
@@ -27,9 +28,9 @@ $(function(){
         tdButton.html("<img src='images/disk.png' class='btnSaver'/>");
 
 
-	}
+	};
 
-	function saveEmployee(){
+    EmployeeManager.prototype.saveEmployee=function (){
 		var employeeRow = $(this).closest(".employee-row"); //tr
         var tdName = employeeRow.find(".name");
         var tdPhone = employeeRow.find(".phone");
@@ -44,19 +45,19 @@ $(function(){
 
 
 
-	}
+	};
 
-	function deleteEmployee(){
+    EmployeeManager.prototype.deleteEmployee=function (){
 		var employeeRow =$(this).closest(".employee-row"); //tr
         employeeRow.remove();
-	}
+	};
 
 
+var employee=new EmployeeManager();
 
+//document.getElementById("body").on("click", "#btnaddEmployee",EmployeeManager.addEmployee);
+ $("body").on("click", "#btnaddEmployee",EmployeeManager.addEmployee);
+    $("body").on("click", ".btnSaver", employee.saveEmployee);
+    $("body").on("click", ".btnEdit", employee.editEmployee);
+    $("body").on("click",".btnDelete", employee.deleteEmployee);
 
-    $("body").on("click", "#btnaddEmployee",addEmployee);
-    $("body").on("click", ".btnSaver", saveEmployee);
-    $("body").on("click", ".btnEdit", editEmployee);
-    $("body").on("click",".btnDelete", deleteEmployee);
-
-});
