@@ -13,7 +13,7 @@ $(function(){
 	}
 
 	function editEmployee(){
-		var employeeRow = $(this).closest("tr");//tr
+		var employeeRow = $(this).closest(".employee-row");//tr
         var tdName = employeeRow.find(".name");
         var tdPhone = employeeRow.find(".phone");
 		var tdEmail = employeeRow.find(".email");
@@ -30,7 +30,7 @@ $(function(){
 	}
 
 	function saveEmployee(){
-		var employeeRow = $(this).closest("tr"); //tr
+		var employeeRow = $(this).closest(".employee-row"); //tr
         var tdName = employeeRow.find(".name");
         var tdPhone = employeeRow.find(".phone");
         var tdEmail = employeeRow.find(".email");
