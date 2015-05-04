@@ -8,7 +8,7 @@ EmployeeManager.prototype.addEmployee = function () {
         "<td class='name'><input type='text' /></td>" +
         "<td class='phone' ><input type='text' /></td>" +
         "<td class='email'><input type='text' /></td>" +
-        "<td class='commands'><img src='../images/disk.png' class='btnSaver'><img src='../images/delete.png' class='btnDelete'/></td>" +
+        "<td class='commands'><img src='images/disk.png' class='btnSaver'><img src='images/delete.png' class='btnDelete'/></td>" +
         "</tr>");
 
 
@@ -30,7 +30,7 @@ EmployeeManager.prototype.editEmployee = function () {
 
     tdPhone.html("<input type='text' id='txtPhone' value='" + tdPhone.html() + "'/>");
     tdEmail.html("<input type='text' id='txtEmail' value='" + tdEmail.html() + "'/>");
-    tdButton.html("<img src='../images/disk.png' class='btnSaver'/>");
+    tdButton.html("<img src='images/disk.png' class='btnSaver'/>");
 
 
 };
@@ -63,7 +63,7 @@ EmployeeManager.prototype.saveEmployee = function () {
     tdName.html(tdName.children("input[type=text]").val());
     tdPhone.html(tdPhone.children("input[type=text]").val());
     tdEmail.html(tdEmail.children("input[type=text]").val());
-    tdButton.html("<img src='../images/delete.png' class='btnDelete'/><img src='../images/pencil.png' class='btnEdit'/>");
+    tdButton.html("<img src='images/delete.png' class='btnDelete'/><img src='images/pencil.png' class='btnEdit'/>");
 
 
 };
@@ -96,4 +96,7 @@ $(document).ready(function () {
             }
             )
             ;
-        });
+
+
+
+});

@@ -1,5 +1,5 @@
 body  {
-    background-image: url("../paper.gif");
+   background-image: url("images/paper.gif");
     background-color: #cccccc;
 }
 
@@ -8,7 +8,7 @@ div#banner {
     width:960px;
     height:200px;
     margin:auto;
-    background:url(../fotogrph-skyscraping.jpg) repeat 0 0;
+    background:url("images/fotogrph-skyscraping.jpg") repeat 0 0;
 }
 
 div#banner p {
@@ -112,6 +112,20 @@ table#t01 tr:nth-child(odd) {
     background-color:#fff;
 }
 table#t01 th	{
+    background-color: black;
+    color: white;
+}
+
+
+
+table#personDataTable tr:nth-child(even) {
+    background-color: #eee;
+
+}
+table#personDataTable tr:nth-child(odd) {
+    background-color:#fff;
+}
+table#personDataTable th	{
     background-color: black;
     color: white;
 }
