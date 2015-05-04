@@ -45,11 +45,14 @@ var http = require('http'),
 fs = require('fs');
 var express=require("express"),
     app=express();
+var bodyParser = require('body-parser');
+
 
 
 //app.use(express.compress());
 
 app.use(express.static('public'));
+app.use(bodyParser.json());
 
 app.listen("1337");
 
@@ -88,7 +91,7 @@ app.get('/employees', function(req, res) {
 app.post('/employeesAdd', function(request, response){
    var value=request.body;
     employeesArray.push(value);
-    response.send(request.body);
+    response.end();
 });
 
 

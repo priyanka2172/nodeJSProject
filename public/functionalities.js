@@ -62,18 +62,12 @@ EmployeeManager.prototype.saveEmployee = function () {
     alert(nameVal);
     alert(phoneVal);
     alert(emailVal);
-    var JSONObj = new Object();
-    JSONObj={ "name ":nameVal, "phone":phoneVal, "email":emailVal  };
-
     $.ajax({
         url: "/employeesAdd",
         type: 'POST',
-        contentType:'application/json',
-        data: {data: JSONObj},
-        dataType: 'json',
+        data: { name:nameVal, phone:phoneVal, email:emailVal },
         success: function(data){
            console.log(data);
-
         },
         error: function(errorMsg) {
             alert("error");
