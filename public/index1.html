@@ -26,24 +26,11 @@
         <th class="commands" colspan="2">Commands</th>
     </tr>
 
-    <tbody>
-    <tr>
-        <td class="name">Priyanka Acharya</td>
-        <td class="phone">8888-8888</td>
-        <td class="email">priyanka@gmail.com</td>
-        <td class="commands"><img src="images/delete.png" class="btnDelete"/><img src="images/pencil.png"class="btnEdit"/></td>
-    </tr>
-    </tbody>
-</table>
-    <button id="btnaddEmployee" class="myButton">Add Employee</button>
-    <br><br><br>
-    <table id="personDataTable">
 
-        <tr class="employee-row">
-            <th class="name">Name</th>
-            <th class="goals">Goals</th>
-        </tr>
-    </table>
+</table>
+
+
+    <button id="btnaddEmployee" class="myButton">Add Employee</button>
 
 </div>
 <script>
@@ -51,9 +38,11 @@
         $.getJSON("/employees", function(result){
             $.each(result, function(i, item){
                 var row = $("<tr />")
-                $("#personDataTable").append(row); //this will append tr element to table... keep its reference for a while since we will add cels into it
+                $("#t01").append(row); //this will append tr element to table... keep its reference for a while since we will add cels into it
                 row.append($("<td>" + item.name + "</td>"));
-                row.append($("<td>" + item.goals + "</td>"));
+                row.append($("<td>" + item.phone + "</td>"));
+                row.append($("<td>" + item.email + "</td>"));
+                row.append($("<td>"+("<img src='images/delete.png'/>")+("<img src='images/pencil.png'/>")+"</td>"));
 
             });
         });

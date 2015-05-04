@@ -53,13 +53,13 @@ app.use(express.static('public'));
   app.listen("1337");
 
 var employees=
-    [{"name":"Messi", "goals":8},
-        {"name":"Ronaldo", "goals":22},
-        {"name":"Costa", "goals":20},
-        {"name":"Neymar", "goals":13},
-        {"name":"Arabi", "goals":6},
-        {"name":"Bale", "goals":3},
-        {"name":"Toquero", "goals":0}];
+    [{"name":"Messi", "phone":"5104446545","email":"messi@gmail.com"},
+        {"name":"Ronaldo", "phone":"5104446545","email":"Ronaldo@gmail.com"},
+        {"name":"Costa", "phone":"5104446545","email":"Costa@gmail.com"},
+        {"name":"Neymar", "phone":"5104446545","email":"Neymar@gmail.com"},
+        {"name":"Arabi", "phone":"5104446545","email":"Arabi@gmail.com"},
+        {"name":"Bale", "phone":"5104446545","email":"Bale@gmail.com"},
+        {"name":"Toquero", "phone":"5104446545","email":"Toquero@gmail.com"}];
 
 
 

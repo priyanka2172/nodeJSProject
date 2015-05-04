@@ -86,16 +86,7 @@ $(document).ready(function () {
     $("body").on("click", ".btnEdit", employee.editEmployee);
     $("body").on("click", ".btnDelete", employee.deleteEmployee);
 
-    $.getJSON('/employees', function (employee) {
-            console.log(employees);
-        },
 
-        function (error) {
-
-                console.log(error)
-            }
-            )
-            ;
 
 
 
