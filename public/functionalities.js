@@ -1,5 +1,4 @@
-var EmployeeManager = function () {
-};
+var EmployeeManager = function () {};
 
 
 EmployeeManager.prototype.addEmployee = function () {
@@ -40,6 +39,7 @@ EmployeeManager.prototype.saveEmployee = function () {
 
     var employeeRow = $(this).closest(".employee-row"); //tr
     var tdName = employeeRow.find(".name");
+
     var tdPhone = employeeRow.find(".phone");
     var tdEmail = employeeRow.find(".email");
     var tdButton = employeeRow.find(".commands");
@@ -49,15 +49,43 @@ EmployeeManager.prototype.saveEmployee = function () {
     var $items = $('.name', '.phone', '.email', '.commands');
     var employees = {};
     $items.each(function () {
-        employees[this.id] = $(this).val()
+        employees[this.id] = $(this).val();
+
+
+
     })
+
+
+    var nameVal=tdName.children("input[type=text]").val();
+    var phoneVal=tdPhone.children("input[type=text]").val();
+    var emailVal=tdEmail.children("input[type=text]").val();
+    alert(nameVal);
+    alert(phoneVal);
+    alert(emailVal);
+    var JSONObj = new Object();
+    JSONObj={ "name ":nameVal, "phone":phoneVal, "email":emailVal  };
+
     $.ajax({
+        url: "/employeesAdd",
         type: 'POST',
-        data: {data: employees},
+        contentType:'application/json',
+        data: {data: JSONObj},
         dataType: 'json',
-        contentType: "application/x-www-form-urlencoded"
+        success: function(data){
+           console.log(data);
+
+        },
+        error: function(errorMsg) {
+            alert("error");
+        }
+
 
     });
+
+
+
+
+
 
 
     tdName.html(tdName.children("input[type=text]").val());
@@ -75,6 +103,7 @@ EmployeeManager.prototype.deleteEmployee = function () {
 
 };
 var employee = new EmployeeManager();
+
 $(document).ready(function () {
 
 

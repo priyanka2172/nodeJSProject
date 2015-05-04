@@ -42,7 +42,7 @@ var server = app.listen(3000, function () {
 });*/
 
 var http = require('http'),
-    fs = require('fs');
+fs = require('fs');
 var express=require("express"),
     app=express();
 
@@ -50,9 +50,10 @@ var express=require("express"),
 //app.use(express.compress());
 
 app.use(express.static('public'));
-  app.listen("1337");
 
-var employees=
+app.listen("1337");
+
+var employeesArray=
     [{"name":"Messi", "phone":"5104446545","email":"messi@gmail.com"},
         {"name":"Ronaldo", "phone":"5104446545","email":"Ronaldo@gmail.com"},
         {"name":"Costa", "phone":"5104446545","email":"Costa@gmail.com"},
@@ -80,8 +81,14 @@ console.log('Server running at http://127.0.0.1:1337/');*/
 
 app.get('/employees', function(req, res) {
     res.contentType('application/json');
-    res.send(JSON.stringify(employees));
+    res.send(JSON.stringify(employeesArray));
 
+});
+
+app.post('/employeesAdd', function(request, response){
+   var value=request.body;
+    employeesArray.push(value);
+    response.send(request.body);
 });
 
 
