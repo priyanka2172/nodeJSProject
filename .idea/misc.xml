@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectRootManager" version="2" />
   <component name="SvnBranchConfigurationManager">
+<<<<<<< Updated upstream
     <option name="myConfigurationMap">
       <map>
         <entry key="$PROJECT_DIR$">
@@ -13,6 +14,8 @@
         </entry>
       </map>
     </option>
+=======
+>>>>>>> Stashed changes
     <option name="mySupportsUserInfoFilter" value="true" />
   </component>
 </project>
