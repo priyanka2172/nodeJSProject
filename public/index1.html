@@ -1,55 +1,89 @@
 <html>
 <head>
-    <script type="text/javascript" src="lib/jquery-1.9.0.min.js"></script>
+
+    <script src="lib/jquery-1.9.0.min.js"></script>
+    <script src="lib/handlebars.js"></script>
     <script type="text/javascript" src="functionalities.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="stylesheet" type="text/css" href="bootstrap.css"/>
 
 
 </head>
 <body>
 
 <div id="banner"><p>Enjoy the Power</p></div><br><br>
-<script src="lib/jquery-1.9.0.min.js" type="text/javascript"></script>
+
 <script src="jquery.index.js" type="text/javascript"></script>
 <br><br><br>
 
 
-<div id="mydiv">
 
-
-<table id="t01">
-
-    <tr class="employee-row">
-        <th class="name">Name</th>
-        <th class="phone">Phone</th>
-        <th class="email">Email</th>
-        <th class="commands" colspan="2">Commands</th>
-    </tr>
-
-
-</table>
-
-
-    <button id="btnaddEmployee" class="myButton">Add Employee</button>
+<div id="mydiv" >
 
 </div>
-<script>
-    $( document ).ready(function() {
-        $.getJSON("/employees", function(result){
-            $.each(result, function(i, item){
-                var row = $("<tr />")
-                $("#t01").append(row); //this will append tr element to table... keep its reference for a while since we will add cels into it
-                row.append($("<td>" + item.name + "</td>"));
-                row.append($("<td>" + item.phone + "</td>"));
-                row.append($("<td>" + item.email + "</td>"));
-                row.append($("<td>"+("<img src='images/delete.png' class='btnDelete'/>")+("<img src='images/pencil.png' class='btnEdit'/>")+"</td>"));
-
-            });
-        });
-    });
-
-
-
+<!--Handlebar templates start-->
+<script id="employee-template" type="text/x-handlebars-template">
+    <table id="t01">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Mark</th>
+            <th>Subject</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each employeesArray}}
+        <tr>
+            <td>{{ this.name }}</td>
+            <td>{{ this.phone }}</td>
+            <td>{{ this.email }}</td>
+        </tr>
+        {{/each}}
+        </tbody>
+    </table>
 </script>
+<!--Handlebar templates end-->
+
 </body>
 </html>
+
+
+<!--<div id="mydiv">-->
+
+
+<!--<table id="t01">-->
+
+    <!--<tr class="employee-row">-->
+        <!--<th class="name">Name</th>-->
+        <!--<th class="phone">Phone</th>-->
+        <!--<th class="email">Email</th>-->
+        <!--<th class="commands" colspan="2">Commands</th>-->
+    <!--</tr>-->
+
+
+<!--</table>-->
+
+
+    <!--<button id="btnaddEmployee" class="myButton">Add Employee</button>-->
+
+<!--</div>-->
+<!--<script>-->
+    <!--$( document ).ready(function() {-->
+        <!--$.getJSON("/employees", function(result){-->
+            <!--$.each(result, function(i, item){-->
+                <!--var row = $("<tr />")-->
+                <!--$("#t01").append(row); //this will append tr element to table... keep its reference for a while since we will add cels into it-->
+                <!--row.append($("<td>" + item.name + "</td>"));-->
+                <!--row.append($("<td>" + item.phone + "</td>"));-->
+                <!--row.append($("<td>" + item.email + "</td>"));-->
+                <!--row.append($("<td>"+("<img src='images/delete.png' class='btnDelete'/>")+("<img src='images/pencil.png' class='btnEdit'/>")+"</td>"));-->
+
+            <!--});-->
+        <!--});-->
+    <!--});-->
+
+
+
+<!--</script>-->
+
+

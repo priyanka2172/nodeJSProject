@@ -77,7 +77,7 @@ div#banner p {
     height:18em;
     margin-top: -9em; /*set to a negative number 1/2 of your height*/
     margin-left: -15em; /*set to a negative number 1/2 of your width*/
-    background-image: url("../paper.gif");
+    background-image: url("images/paper.gif");
 
 }
 
@@ -89,7 +89,7 @@ div#banner p {
     height:18em;
     margin-top: -9em; /*set to a negative number 1/2 of your height*/
     margin-left: -15em; /*set to a negative number 1/2 of your width*/
-    background-image: url("../paper.gif");
+    background-image: url("images/paper.gif");
 
 }
 table {
