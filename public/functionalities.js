@@ -67,7 +67,11 @@ EmployeeManager.prototype.saveEmployee = function () {
         type: 'POST',
         data: { name:nameVal, phone:phoneVal, email:emailVal },
         success: function(data){
+
+            console.log(data);
+
            console.log(data);
+
         },
         error: function(errorMsg) {
             alert("error");
@@ -98,6 +102,32 @@ EmployeeManager.prototype.deleteEmployee = function () {
 };
 var employee = new EmployeeManager();
 
+
+var Employee_METHOD ={
+
+    handlerData:function(resJSON){
+
+        var templateSource   = $("#employee-template").html(),
+
+            template = Handlebars.compile(templateSource),
+
+            studentHTML = template(resJSON);
+
+        $('#mydiv').html(studentHTML);
+        console.log($("#employee-template"))
+    },
+    loadStudentData : function(){
+
+        $.ajax({
+            //url:"http://localhost:63342/NewnodeJsProject/public/data/studentData.json",
+            url:"http://localhost:63342/NewnodeJsProject/public/data/studentData.json",
+            method:'get',
+            success:this.handlerData
+
+        })
+    }
+};
+
 $(document).ready(function () {
 
 
@@ -110,7 +140,8 @@ $(document).ready(function () {
     $("body").on("click", ".btnDelete", employee.deleteEmployee);
 
 
-
+    Employee_METHOD.loadStudentData();
 
 
 });
+
