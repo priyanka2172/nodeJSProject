@@ -3,7 +3,7 @@
  */
 
 
-define(["handlebars","jquery"],function (handlebars,$) {
+define(["jquery-1.9.0.min","handlebars"],function ($,handlebars) {
 
 
         var Employee_METHOD ={
@@ -12,7 +12,7 @@ define(["handlebars","jquery"],function (handlebars,$) {
 
                 var templateSource   = $("#employee-template").html(),
 
-                    template = Handlebars.compile(templateSource),
+                    template = handlebars.compile(templateSource),
 
                     studentHTML = template(resJSON);
 
