@@ -3,7 +3,7 @@
  */
 
 
-define(["jquery-1.9.0.min","handlebars"],function ($,handlebars) {
+define(["jquery","handlebars"],function ($,handlebars) {
 
 
         var Employee_METHOD ={

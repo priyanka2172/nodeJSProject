@@ -2,8 +2,11 @@
  * Created by nisum-user on 5/7/15.
  */
 
-require(["jquery-1.9.0.min","employeeManager","employeeData"], function ($,employeeManger,employeeData) {
-   var main= employeeManger.loadStudentData();
+
+define(["jquery","employeeManager","employeeData"], function ($,employeeManager,employeeData) {
+   alert("main.js funtion");
+    var main= employeeManager.loadStudentData();
+    alert("main.js end");
 
     return main;
 

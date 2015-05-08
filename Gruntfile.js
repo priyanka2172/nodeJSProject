@@ -2,7 +2,7 @@
  * Created by nisum-user on 5/6/15.
  */
 
-module.exports = function(grunt) {
+/*module.exports = function(grunt) {
 
     // Project configuration.
     grunt.initConfig({
@@ -21,4 +21,4 @@ module.exports = function(grunt) {
     // Default task(s).
     grunt.registerTask('default', ['uglify']);
 
-};
+};*/
