@@ -3,7 +3,7 @@
  */
 
 
-define(["jquery","employeeManager","employeeData"], function ($,employeeManager,employeeData) {
+define(["jquery","employeeManager","archieve/employeeData"], function ($,employeeManager,employeeData) {
    alert("main.js funtion");
     var main= employeeManager.loadStudentData();
     alert("main.js end");
