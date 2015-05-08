@@ -3,7 +3,7 @@
  */
 
 
-define(["jquery","handlebars"],function ($,handlebars) {
+define(["bower_components/jquery/dist/jquery","bower_components/handlebars/handlebars"],function ($,handlebars) {
 
 
         var Employee_METHOD ={
