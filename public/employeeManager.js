@@ -3,36 +3,32 @@
  */
 
 
-define(["bower_components/jquery/dist/jquery","bower_components/handlebars/handlebars"],function ($,handlebars) {
+define(["jquery", "build/myHandleBar"], function ($, handlebars) {
+
+   return Backbone.view.extend({
+        defaults: {
+                //var Employee_METHOD = {
+
+            handlerData: function (resJSON) {
 
 
-        var Employee_METHOD ={
+                $('#mydiv').html(handlebars(resJSON));
 
-            handlerData:function(resJSON){
-
-                var templateSource   = $("#employee-template").html(),
-
-                    template = handlebars.compile(templateSource),
-
-                    studentHTML = template(resJSON);
-
-                $('#mydiv').html(studentHTML);
-                console.log($("#employee-template"))
             },
-            loadStudentData : function(){
+            loadStudentData: function () {
 
                 $.ajax({
 //url:"http://localhost:63342/NewnodeJsProject/public/data/studentData.json",
-                    url:"http://localhost:63342/NewnodeJsProject/public/data/studentData.json",
-                    method:'get',
-                    success:this.handlerData
+                    url: "http://localhost:63342/NewnodeJsProject/public/data/studentData.json",
+                    method: 'get',
+                    success: this.handlerData
 
                 })
             }
-        };
+        }
 
 
-    return Employee_METHOD;
-
+    //return Employee_METHOD;
+});
 
 });

@@ -1,0 +1,21 @@
+{{!<default}}
+
+
+    <table id="t01">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each employeesArray}}
+            <tr>
+                <td>{{ this.name }}</td>
+                <td>{{ this.phone }}</td>
+                <td>{{ this.email }}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>

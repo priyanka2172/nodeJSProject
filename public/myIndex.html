@@ -1,0 +1,87 @@
+
+<html>
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="http://documentcloud.github.io/underscore/underscore-min.js"></script>
+    <script src="http://documentcloud.github.io/backbone/backbone-min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="stylesheet" type="text/css" href="bootstrap.css"/>
+
+
+    <script>
+
+        $(function() {
+            var employee = Backbone.Model.extend();
+
+            var EmployeeList = Backbone.Collection.extend({
+                model: employee,
+                url: 'studentData.json'
+            });
+
+            var EmployeeView = Backbone.View.extend({
+                el: "#mydiv",
+                template: _.template($('#employeeTemplate').html()),
+                render: function(eventName) {
+                    _.each(this.model.models, function(employee){
+                        var employeeTemplate = this.template(employee.toJSON());
+                        $(this.el).append(employeeTemplate);
+                    }, this);
+
+                    return this;
+                }
+            });
+
+            var employees = new EmployeeList();
+            var profilesView = new EmployeeView({model: employees});
+            employees.fetch({
+                success: function() {
+                    profilesView.render();
+                }
+            });
+
+        });
+    </script>
+    <title>Employee Details with Backbone</title>
+</head>
+<body>
+<div id="banner"><p>Enjoy the Power</p></div><br><br>
+
+
+<br><br><br>
+
+<div id="mydiv" >
+
+    <table id="t01">
+        <thead>
+        <tr>
+
+            <th class="name">Name</th>
+            <th class="phone">Phone</th>
+            <th class="email">Email</th>
+        </tr>
+        </thead>
+        <script id="employeeTemplate" type="text/template">
+        <tbody>
+
+            <tr>
+
+            <td class="name"><%= name %></td>
+            <td class="phone"><%= phone %></td>
+            <td class="email"><%= email %></td>
+
+        </tr>
+        </script>
+
+            </tbody>
+            </table>
+
+
+
+
+
+</div>
+
+
+
+</body>
+</html>
